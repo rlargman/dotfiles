@@ -1,0 +1,13 @@
+[user]
+	name = Raissa Largman
+	email = raissa.largman@airbnb.com
+[color]
+	ui = auto
+[core]
+	editor = /usr/bin/vim
+[push]
+	default = current
+[rerere]
+	enabled = true
+[alias]
+  prune-merged = ! "git branch --merged master | grep -v -E '^(\\* |  master$)' | xargs -n 1 git branch -d"
