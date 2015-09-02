@@ -1,11 +1,12 @@
 # Goldkey
-alias rekey='killall ssh-agent; ssh-add -e /usr/local/lib/opensc-pkcs11.so; ssh-add -s /usr/local/lib/opensc-pkcs11.so -t 3600'
+alias rekey='killall ssh-agent; ssh-add -e /usr/local/lib/opensc-pkcs11.so; ssh-add -s /usr/local/lib/opensc-pkcs11.so -t 28800'
 alias rekey1='killall ssh-agent && ssh-add -s /usr/local/lib/opensc-pkcs11.so -t 28800'
 
 # Git
+alias gnewb="git checkout -t origin/master -b"
 alias gcob="git checkout -b"
 alias gplom="git pull origin master"
-#alias gpsom="git push origin master"
+alias grom="git pull --rebase origin master"
 alias grb="git rebase"
 alias grbm="git rebase master"
 alias gft="git fetch"
@@ -14,6 +15,9 @@ alias gft="git fetch"
 # alias gpfo="git push -f origin $(git rev-parse --abbrev-ref HEAD)"
 #alias gclone="git clone"
 alias gstl="git stash list"
+
+# Git autocomplete
+. /usr/local/etc/bash_completion.d/git-completion.bash
 
 # Make the prompt look like this:
 # Mon Apr 02 12:06:50 ~/code/airbnb (master) $
