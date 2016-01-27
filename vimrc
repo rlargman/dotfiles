@@ -1,3 +1,4 @@
+call pathogen#infect()
 "Color Scheme"
 syntax enable
 set background=dark

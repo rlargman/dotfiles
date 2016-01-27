@@ -1,7 +1,3 @@
-# Goldkey
-alias rekey='killall ssh-agent; ssh-add -e /usr/local/lib/opensc-pkcs11.so; ssh-add -s /usr/local/lib/opensc-pkcs11.so -t 28800'
-alias rekey1='killall ssh-agent && ssh-add -s /usr/local/lib/opensc-pkcs11.so -t 28800'
-
 # Git
 alias gnewb="git checkout -t origin/master -b"
 alias gcob="git checkout -b"
@@ -17,12 +13,21 @@ alias gft="git fetch"
 alias gstl="git stash list"
 
 # Git autocomplete
-. /usr/local/etc/bash_completion.d/git-completion.bash
+. ~/.git/git-completion.bash
 
 # Make the prompt look like this:
 # Mon Apr 02 12:06:50 ~/code/airbnb (master) $
-. /usr/local/etc/bash_completion.d/git-prompt.sh
-export PS1="\[\033[01;32m\]\d \t \w\$(__git_ps1) \[\033[00m\]\$ "
+#. /usr/local/etc/bash_completion.d/git-prompt.sh
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\[\033[01;32m\]\d \t \w\$(parse_git_branch) \[\033[00m\]\$ "
+
+# Slack Commands:
+# open dev environment
+dev() {
+    open https://my.dev$1.slack.com/
+}
 
 # Vagrant
 alias v="vagrant"
@@ -36,6 +41,6 @@ alias vr="vagrant resume"
 # Zsh
 alias zshreload="source $ZDOTDIR/.zshrcr"
 
-# Rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+### START SLACK-UPDATE-BASH ###
+test -e "/usr/local/slack_include/slack_bash_complete.sh" && source /usr/local/slack_include/slack_bash_complete.sh
+### END SLACK-UPDATE-BASH ###
