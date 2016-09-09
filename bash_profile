@@ -4,8 +4,11 @@ alias gcob="git checkout -b"
 alias gplom="git pull origin master"
 alias grom="git pull --rebase origin master"
 alias grb="git rebase"
-alias grbm="git rebase master"
+alias grbm="git rebase origin/master"
 alias gft="git fetch"
+alias gpo="git push -u origin"
+alias gcm="git commit -m"
+alias gmo="git fetch origin && git merge origin/master"
 # Commented out next line because it was causing error messages when opening a
 # new shell
 # alias gpfo="git push -f origin $(git rev-parse --abbrev-ref HEAD)"
@@ -14,6 +17,10 @@ alias gstl="git stash list"
 
 # Git autocomplete
 source ~/.git/git-completion.bash
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
 
 # Make the prompt look like this:
 # Mon Apr 02 12:06:50 ~/code/airbnb (master) $
@@ -107,3 +114,16 @@ alias zshreload="source $ZDOTDIR/.zshrcr"
 ### START SLACK-UPDATE-BASH ###
 test -e "/usr/local/slack_include/slack_bash_complete.sh" && source /usr/local/slack_include/slack_bash_complete.sh
 ### END SLACK-UPDATE-BASH ###
+
+PATH=$PATH:/usr/local/Cellar/node/5.4.1_1/libexec/npm/bin
+
+# More slack things
+devapp() {
+    /Applications/Slack.app/Contents/MacOS/Slack -devEnv dev$1
+}
+SLACK_SYNC_DEV_AUTO_ATTACH="1"
+SLACK_WEBAPP_SRC="~/Github/webapp"
+alias pr="slack checkpoint -p -y"
+
+# GO things
+export PATH=$PATH:$GOPATH/bin
