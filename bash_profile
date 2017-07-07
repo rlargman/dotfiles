@@ -15,12 +15,14 @@ alias gmo="git fetch origin && git merge origin/master"
 #alias gclone="git clone"
 alias gstl="git stash list"
 
-# Git autocomplete
-source ~/.git/git-completion.bash
+# Git autocomplete source ~/.git/git-completion.bash
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+# Random aliases
+alias ...="cd .. & cd.."
 
 # Make the prompt look like this:
 # Mon Apr 02 12:06:50 ~/code/airbnb (master) $
@@ -127,3 +129,4 @@ alias pr="slack checkpoint -p -y"
 
 # GO things
 export PATH=$PATH:$GOPATH/bin
+
