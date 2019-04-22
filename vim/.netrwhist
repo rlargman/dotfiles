@@ -1,8 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/raissa/Github/webapp/include/api_docs/events/message'
 let g:netrw_dirhist_2='/Users/raissa/Github/webapp/include/api_docs/methods'
 let g:netrw_dirhist_3='/Users/raissa/Github/webapp/include/api_docs/types'
 let g:netrw_dirhist_4='/Users/raissa/dotfiles_old'
 let g:netrw_dirhist_5='/Users/raissa/Github/dotfiles'
 let g:netrw_dirhist_6='/dev'
+let g:netrw_dirhist_7='/Users/raissa/Github/webapp/.git'
+let g:netrw_dirhist_8='/Users/raissa/Github/dotfiles/git'
+let g:netrw_dirhist_9='/Users/raissa/.git'

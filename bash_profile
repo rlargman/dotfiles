@@ -117,7 +117,7 @@ alias zshreload="source $ZDOTDIR/.zshrcr"
 test -e "/usr/local/slack_include/slack_bash_complete.sh" && source /usr/local/slack_include/slack_bash_complete.sh
 ### END SLACK-UPDATE-BASH ###
 
-PATH=$PATH:/usr/local/Cellar/node/5.4.1_1/libexec/npm/bin
+PATH=/usr/local/bin:$PATH:/usr/local/Cellar/node/5.4.1_1/libexec/npm/bin
 
 # More slack things
 devapp() {
@@ -128,5 +128,10 @@ SLACK_WEBAPP_SRC="~/Github/webapp"
 alias pr="slack checkpoint -p -y"
 
 # GO things
+export GOPATH=~/go
+export GO111MODULE=auto
 export PATH=$PATH:$GOPATH/bin
 
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
