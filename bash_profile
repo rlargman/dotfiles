@@ -129,7 +129,7 @@ alias pr="slack checkpoint -p -y"
 
 # GO things
 export GOPATH=~/go
-export GO111MODULE=auto
+export GO111MODULE=on
 export PATH=$PATH:$GOPATH/bin
 
 #export NVM_DIR="$HOME/.nvm"

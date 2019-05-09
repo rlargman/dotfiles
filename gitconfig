@@ -14,3 +14,5 @@
 	enabled = true
 [alias]
   prune-merged = ! "git branch --merged master | grep -v -E '^(\\* |  master$)' | xargs -n 1 git branch -d"
+[url "git+ssh://git@slack-github.com"]
+	insteadOf = https://slack-github.com
