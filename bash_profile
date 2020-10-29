@@ -1,4 +1,6 @@
 # Git
+alias gm="git checkout master"
+alias gc="git checkout"
 alias gnewb="git checkout -t origin/master -b"
 alias gcob="git checkout -b"
 alias gplom="git pull origin master"
@@ -16,6 +18,9 @@ alias gmo="git fetch origin && git merge origin/master"
 alias gstl="git stash list"
 
 # Git autocomplete source ~/.git/git-completion.bash
+if [ -f ~/.git/git-completion.bash ]; then
+  . ~/.git/git-completion.bash
+fi
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -95,37 +100,10 @@ parse_git_branch () {
 
 PS1="\[${BOLD}${CYAN}\]\u \[$BASE0\]at \[$MAGENTA\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\]\$ \[$RESET\]"
 
-# Slack Commands:
-# open dev environment
-dev() {
-    open https://my.dev$1.slack.com/
-}
-
-# Vagrant
-alias v="vagrant"
-alias vpr="vagrant provision"
-alias vsh="vagrant ssh"
-alias vup="vagrant up"
-alias vh="vagrant halt"
-alias vsus="vagrant suspend"
-alias vr="vagrant resume"
-
 # Zsh
 alias zshreload="source $ZDOTDIR/.zshrcr"
 
-### START SLACK-UPDATE-BASH ###
-test -e "/usr/local/slack_include/slack_bash_complete.sh" && source /usr/local/slack_include/slack_bash_complete.sh
-### END SLACK-UPDATE-BASH ###
-
 PATH=/usr/local/bin:$PATH:/usr/local/Cellar/node/5.4.1_1/libexec/npm/bin
-
-# More slack things
-devapp() {
-    /Applications/Slack.app/Contents/MacOS/Slack -devEnv dev$1
-}
-SLACK_SYNC_DEV_AUTO_ATTACH="1"
-SLACK_WEBAPP_SRC="~/Github/webapp"
-alias pr="slack checkpoint -p -y"
 
 # GO things
 export GOPATH=~/go
@@ -135,3 +113,9 @@ export PATH=$PATH:$GOPATH/bin
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/raissa/google-cloud-sdk/path.bash.inc' ]; then . '/Users/raissa/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/raissa/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/raissa/google-cloud-sdk/completion.bash.inc'; fi
