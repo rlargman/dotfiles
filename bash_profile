@@ -119,3 +119,8 @@ if [ -f '/Users/raissa/google-cloud-sdk/path.bash.inc' ]; then . '/Users/raissa/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/raissa/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/raissa/google-cloud-sdk/completion.bash.inc'; fi
+
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
